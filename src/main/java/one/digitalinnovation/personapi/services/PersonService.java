@@ -1,8 +1,9 @@
 package one.digitalinnovation.personapi.services;
 
-import one.digitalinnovation.personapi.entities.Person;
+import one.digitalinnovation.personapi.dto.PersonDTO;
+import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 
 public interface PersonService {
 
-    public Person createPerson(Person person);
+    MessageResponseDTO createPerson(PersonDTO personDTO);
 }
