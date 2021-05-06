@@ -3,6 +3,7 @@ package one.digitalinnovation.personapi.services.impl;
 import one.digitalinnovation.personapi.dto.PersonDTO;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnovation.personapi.entities.Person;
+import one.digitalinnovation.personapi.exceptions.PersonNotFoundException;
 import one.digitalinnovation.personapi.mappers.PersonMapper;
 import one.digitalinnovation.personapi.repositories.PersonRepository;
 import one.digitalinnovation.personapi.services.PersonService;
@@ -42,5 +43,13 @@ public class PersonServiceImpl implements PersonService {
         return persons.stream().map(item -> {
             return personMapper.toDTO(item);
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public PersonDTO findById(Long id) throws PersonNotFoundException {
+        Person person = personRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFoundException(id));
+
+        return personMapper.toDTO(person);
     }
 }
