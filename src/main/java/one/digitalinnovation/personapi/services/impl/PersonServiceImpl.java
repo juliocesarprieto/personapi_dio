@@ -31,10 +31,7 @@ public class PersonServiceImpl implements PersonService {
         Person personToSave = personMapper.toModel(personDTO);
 
         Person savedPerson = personRepository.save(personToSave);
-        return MessageResponseDTO
-                .builder()
-                .message("Created person with ID " + savedPerson.getId())
-                .build();
+        return createMessageResponse(savedPerson.getId(), "Created person with ID ");
     }
 
     @Override
@@ -52,9 +49,26 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public MessageResponseDTO updatePerson(Long id, PersonDTO personDTO) throws PersonNotFoundException {
+        verifyIfExists(id);
+
+        Person personToUpdate = personMapper.toModel(personDTO);
+
+        Person updatedPerson = personRepository.save(personToUpdate);
+        return createMessageResponse(updatedPerson.getId(), "Updated person with ID ");
+    }
+
+    @Override
     public void removePerson(Long id) throws PersonNotFoundException {
         verifyIfExists(id);
         personRepository.deleteById(id);
+    }
+
+    private MessageResponseDTO createMessageResponse(Long id, String message) {
+        return MessageResponseDTO
+                .builder()
+                .message(message + id)
+                .build();
     }
 
     private Person verifyIfExists(Long id) throws PersonNotFoundException {
