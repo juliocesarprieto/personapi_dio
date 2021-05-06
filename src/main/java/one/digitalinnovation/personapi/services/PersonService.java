@@ -13,4 +13,6 @@ public interface PersonService {
     List<PersonDTO> findAll();
 
     PersonDTO findById(Long id) throws PersonNotFoundException;
+
+    void removePerson(Long id) throws PersonNotFoundException;
 }
