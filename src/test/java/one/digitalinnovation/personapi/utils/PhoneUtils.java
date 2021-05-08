@@ -10,7 +10,7 @@ public class PhoneUtils {
         return PhoneDTO.builder()
                 .id(1L)
                 .type(PhoneType.MOBILE)
-                .number("123456789123456")
+                .number("(92)999999-999")
                 .build();
     }
 
@@ -18,7 +18,21 @@ public class PhoneUtils {
         return Phone.builder()
                 .id(1L)
                 .type(PhoneType.MOBILE)
-                .number("123456789123456")
+                .number("(92)999999-999")
+                .build();
+    }
+
+    public static PhoneDTO createNewFakeDTO() {
+        return PhoneDTO.builder()
+                .type(PhoneType.MOBILE)
+                .number("(92)999999-999")
+                .build();
+    }
+
+    public static Phone createNewFakeEntity() {
+        return Phone.builder()
+                .type(PhoneType.MOBILE)
+                .number("(92)999999-999")
                 .build();
     }
 }
