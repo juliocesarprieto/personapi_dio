@@ -23,8 +23,15 @@ Após executar o comando acima, basta apenas abrir o seguinte endereço e visual
 http://localhost:8080/api/v1/people
 ```
 
+Documentação da API, basta acessar o seguinte endereço:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
 São necessários os seguintes pré-requisitos para a execução do projeto:
 
 * Java 11 ou versões superiores.
 * Maven 3.8.1 ou versões superiores.
+* [Springdoc-openapi 1.5.8](https://springdoc.org/#modules)
 

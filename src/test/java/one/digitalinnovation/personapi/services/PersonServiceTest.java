@@ -3,6 +3,7 @@ package one.digitalinnovation.personapi.services;
 import one.digitalinnovation.personapi.dto.PersonDTO;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnovation.personapi.entities.Person;
+import one.digitalinnovation.personapi.exceptions.PersonNotFoundException;
 import one.digitalinnovation.personapi.mappers.PersonMapper;
 import one.digitalinnovation.personapi.repositories.PersonRepository;
 import one.digitalinnovation.personapi.services.impl.PersonServiceImpl;
@@ -61,4 +62,5 @@ public class PersonServiceTest {
 
         assertEquals(expectedSuccessMessage, successMessage);
     }
+
 }
